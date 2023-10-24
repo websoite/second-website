@@ -37,6 +37,11 @@
             height: 450px; /* Decreased height */
         }
     </style>
+    <script>
+    function changeCursor(cursorFile) {
+        document.body.style.cursor = 'url(' + cursorFile + '), auto';
+    }
+    </script>
 </head>
 <body>
 
@@ -49,6 +54,7 @@
 <button onclick="changeCursor('Dinosaur.ani')">Dinosaur Cursor</button>
 <button onclick="changeCursor('Banana.ani')">Banana Cursor</button>
 <button onclick="changeCursor('Drum.ani')">Drum Cursor</button>
+
 
 <script>
 function changeCursor(cursorFile) {
