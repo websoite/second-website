@@ -31,7 +31,6 @@
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            cursor: url('Cursor_1.cur'), auto;
         }
         #videoPlayerUS, #videoPlayerIndia {
             width: 800px; /* Decreased width */
@@ -44,6 +43,18 @@
 <h1>This is my second website</h1>
 <h2>My first website can be <a href="https://websoite.github.io" target="_blank"> accessed here</a></h2>
 <h3>While you are here, you can enjoy SharkTank US and SharkTank India's most popular videos to their least popular videos (to a certain extent).</h3>
+
+<!-- Buttons for choosing the cursor -->
+<button onclick="changeCursor('horse.ani')">Horse Cursor</button>
+<button onclick="changeCursor('dinosaur.ani')">Dinosaur Cursor</button>
+<button onclick="changeCursor('banana.ani')">Banana Cursor</button>
+<button onclick="changeCursor('drum.ani')">Drum Cursor</button>
+
+<script>
+function changeCursor(cursorFile) {
+    document.body.style.cursor = 'url(' + cursorFile + '), auto';
+}
+</script>
 
 <h4>SharkTank US</h4>
 
@@ -141,7 +152,7 @@ function closePlayerIndia() {
 
 function loadIframeIndia() {
     var embedUrl = 'https://www.youtube.com/embed/' + videoIdsIndia[currentVideoIndexIndia];
-    var iframe = document.createElement('iframe');
+    var iframe = document.createElement('iframe')
     iframe.src = embedUrl;
     iframe.width = "100%";
     iframe.height = "100%";
