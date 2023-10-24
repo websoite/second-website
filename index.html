@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #00008B;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        h4 {
+            text-align: center;
+            font-size: 2.5em; /* Increased font size */
+        }
+        a {
+            color: #ADD8E6;
+        }
+        button {
+            background-color: #ADD8E6;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: url('Cursor_1.cur'), auto;
+        }
+        #videoPlayerUS, #videoPlayerIndia {
+            width: 800px; /* Decreased width */
+            height: 450px; /* Decreased height */
+        }
+    </style>
+</head>
+<body>
+
+<h1>This is my second website</h1>
+<h2>My first website can be <a href="https://websoite.github.io" target="_blank"> accessed here</a></h2>
+<h3>While you are here, you can enjoy SharkTank US and SharkTank India's most popular videos to their least popular videos (to a certain extent).</h3>
+
+<h4>SharkTank US</h4>
+
+<button onclick="loadVideoUS('up')">🔼</button>
+<button onclick="loadVideoUS('down')">🔽</button>
+<button onclick="goToMostViewedUS()">Go to Most Viewed</button>
+<button onclick="goToLeastViewedUS()">Go to Least Viewed</button>
+<button onclick="closePlayerUS()">Close Player</button>
+
+<div id="videoPlayerUS"></div>
+
+<script>
+var videoIdsUS = ['ae5MssJ8en4', 'IeEQZNeyWKg', 'P51GTC8gvRw', 'LWo6K-0LjeY', 'nn-uMBLuTk0', 'fBGl3ata-K4', 'fuM1Vh7OgfY', 'kGMVz6zMQk4', 'aF6V9Yy6MY4', 'yhjqY6Ps8p4', 'IEnkMAxCOok', 'EI9C5IHWdYk', 'ADP-3_xbr40', 'D83MdEeYe6g', 'foD3MCZLxIY'];
+var currentVideoIndexUS = 0;
+
+function loadVideoUS(direction) {
+    if (direction === 'up' && currentVideoIndexUS > 0) {
+        currentVideoIndexUS--;
+    } else if (direction === 'down' && currentVideoIndexUS < videoIdsUS.length - 1) {
+        currentVideoIndexUS++;
+    }
+    loadIframeUS();
+}
+
+function goToMostViewedUS() {
+    currentVideoIndexUS = 0;
+    loadIframeUS();
+}
+
+function goToLeastViewedUS() {
+    currentVideoIndexUS = videoIdsUS.length - 1;
+    loadIframeUS();
+}
+
+function closePlayerUS() {
+    var div = document.getElementById('videoPlayerUS');
+    while (div.firstChild) {
+        div.firstChild.remove();
+    }
+}
+
+function loadIframeUS() {
+    var embedUrl = 'https://www.youtube.com/embed/' + videoIdsUS[currentVideoIndexUS];
+    var iframe = document.createElement('iframe');
+    iframe.src = embedUrl;
+    iframe.width = "100%";
+    iframe.height = "100%";
+    var div = document.getElementById('videoPlayerUS');
+    while (div.firstChild) {
+        div.firstChild.remove();
+    }
+    div.appendChild(iframe);
+}
+</script>
+
+<h4>SharkTank India</h4>
+
+<button onclick="loadVideoIndia('up')">🔼</button>
+<button onclick="loadVideoIndia('down')">🔽</button>
+<button onclick="goToMostViewedIndia()">Go to Most Viewed</button>
+<button onclick="goToLeastViewedIndia()">Go to Least Viewed</button>
+<button onclick="closePlayerIndia()">Close Player</button>
+
+<div id="videoPlayerIndia"></div>
+
+<script>
+var videoIdsIndia = ['0ta7iWRN-88', 'rZfmiy3XqX0', 'QtIjA4GAaT4', '871NfJWi5Iw', 'tZa_ZK7TlBA', 'uOXequbDInI', 'z36I4Nqv4JE', '7au2SKfFqk8', 'DzsYKMuCxts', 'UqdH4QeSq58', '3FYH48_0P04', 'VKKgSpUic1w', 'g8WR3fLPz6I', 'J4ne9LlA_fM', 'Smm_BgIwNsI'];
+var currentVideoIndexIndia = 0;
+
+function loadVideoIndia(direction) {
+    if (direction === 'up' && currentVideoIndexIndia > 0) {
+        currentVideoIndexIndia--;
+    } else if (direction === 'down' && currentVideoIndexIndia < videoIdsIndia.length - 1) {
+        currentVideoIndexIndia++;
+    }
+    loadIframeIndia();
+}
+
+function goToMostViewedIndia() {
+    currentVideoIndexIndia = 0;
+    loadIframeIndia();
+}
+
+function goToLeastViewedIndia() {
+    currentVideoIndexIndia = videoIdsIndia.length - 1;
+    loadIframeIndia();
+}
+
+function closePlayerIndia() {
+    var div = document.getElementById('videoPlayerIndia');
+    while (div.firstChild) {
+        div.firstChild.remove();
+    }
+}
+
+function loadIframeIndia() {
+    var embedUrl = 'https://www.youtube.com/embed/' + videoIdsIndia[currentVideoIndexIndia];
+    var iframe = document.createElement('iframe');
+    iframe.src = embedUrl;
+    iframe.width = "100%";
+    iframe.height = "100%";
+    var div = document.getElementById('videoPlayerIndia');
+    while (div.firstChild) {
+        div.firstChild.remove();
+    }
+    div.appendChild(iframe);
+}
+</script>
+
+</body>
+</html>
